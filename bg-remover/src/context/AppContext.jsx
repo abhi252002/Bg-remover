@@ -57,7 +57,7 @@ const AppContextProvider = (props) => {
         formData,
         { headers: { token } }
       );
-      if (data.succes) {
+      if (data.success) {
         setResultImage(data.resultImage);
         data.creditBalance && setCredit(data.creditBalance);
       } else {

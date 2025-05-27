@@ -8,41 +8,41 @@ import axios from 'axios'
 
 function BuyCredit() {
 
-  const {backendUrl, loadCreditsData} = useContext(AppContext);
-  const navigate = useNavigate()
+  // const {backendUrl, loadCreditsData} = useContext(AppContext);
+  // const navigate = useNavigate()
 
-  const {getToken} = useAuth();
+  // const {getToken} = useAuth();
 
-  const initPay = async (order)=>{
-       const options = {
-        key : import.meta.env.VITE_RAZORPAY_KEY_ID,
-        amount : order.amount,
-        currency : order.currency,
-        name : "Credits Payment",
-        description : "Credits Payment",
-        order_id : order.id,
-        receipt : order.receipt,
-        handler : async (response) =>{
-             console.log(response)
-        }
-       }
+  // const initPay = async (order)=>{
+  //      const options = {
+  //       key : import.meta.env.VITE_RAZORPAY_KEY_ID,
+  //       amount : order.amount,
+  //       currency : order.currency,
+  //       name : "Credits Payment",
+  //       description : "Credits Payment",
+  //       order_id : order.id,
+  //       receipt : order.receipt,
+  //       handler : async (response) =>{
+  //            console.log(response)
+  //       }
+  //      }
 
-       const rzp = new window.Razorpay(options)
-       rzp.open()
-  }
+  //      const rzp = new window.Razorpay(options)
+  //      rzp.open()
+  // }
 
-  const paymentRazorpay = async (planId)=>{
-    try{
-      const token = await getToken()
-      const {data} = await axios.post(backendUrl + '/api/user/pay-razor',{planId},{headers:{token}})
-      if(data.success){
-          initPay(data.order)
-      }
-    }catch(error){
-      console.log(error)
-      toast.error(error.message)
-    }
-  }
+  // const paymentRazorpay = async (planId)=>{
+  //   try{
+  //     const token = await getToken()
+  //     const {data} = await axios.post(backendUrl + '/api/user/pay-razor',{planId},{headers:{token}})
+  //     if(data.success){
+  //         initPay(data.order)
+  //     }
+  //   }catch(error){
+  //     console.log(error)
+  //     toast.error(error.message)
+  //   }
+  // }
 
   return (
     <div className='min-h-[80vh] text-center pt-14 mb-10'>
