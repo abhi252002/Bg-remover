@@ -3,6 +3,8 @@ const { webhook } = pkg;
 // import {webhook} from 'svix'
 import userModel from "../models/userModel.js";
 import razorpay from "razorpay";
+
+
 // API Controller Function to Mange Clerk User with database
 // http://localhost:4000/api/user/webhooks
 
@@ -72,7 +74,7 @@ const userCredits = async (req, res) => {
 // Geteway initialize
 const razorpayInstance = new razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
-  key_secrets: process.env.RAZORPAY_KEY_SECRET,
+ key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
 // API to make payment for credits
@@ -135,8 +137,8 @@ const paymentRazorpay = async (req, res) => {
 
 
   } catch (error) {
-    console.log(err.message);
-    res.json({ success: false, message: err.message });
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
   }
 };
 
