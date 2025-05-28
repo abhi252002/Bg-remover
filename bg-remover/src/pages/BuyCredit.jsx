@@ -1,17 +1,17 @@
-import React, { useContext } from 'react'
+// import React, { useContext } from 'react'
 import { assets, plans } from '../assets/assets'
-import {AppContext} from '../context/AppContext'
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@clerk/clerk-react';
-import { toast } from 'react-toastify';
-import axios from 'axios'
+// import {AppContext} from '../context/AppContext'
+// import { useNavigate } from 'react-router-dom';
+// import { useAuth } from '@clerk/clerk-react';
+// import { toast } from 'react-toastify';
+// import axios from 'axios'
 
 function BuyCredit() {
 
-  const {backendUrl, loadCreditsData} = useContext(AppContext);
-  const navigate = useNavigate()
+  // const {backendUrl, loadCreditsData} = useContext(AppContext);
+  // const navigate = useNavigate()
 
-  const {getToken} = useAuth();
+  // const {getToken} = useAuth();
 
   // const initPay = async (order)=>{
   //      const options = {
@@ -58,7 +58,8 @@ function BuyCredit() {
             <p className='mt-6'>
               <span className='text-3xl font-medium '>${item.price}</span>/ {item.credits} credits
             </p>
-            <button onClick={()=>paymentRazorpay(item.id)} className=' w-full bg-gray-800 text-white mt-8 text-sm-rounded py-2.5 min-w-52' >Purchase</button>
+            {/* onClick={()=>paymentRazorpay(item.id)} inside the button add this */}
+            <button  className=' w-full bg-gray-800 text-white mt-8 text-sm-rounded py-2.5 min-w-52' >Purchase</button>
           </div>
         ))}
       </div>

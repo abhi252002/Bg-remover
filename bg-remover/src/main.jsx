@@ -3,7 +3,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { ClerkProvider } from "@clerk/clerk-react";
-import AppContextProvider from "./context/AppContext.jsx";
+// import AppContextProvider from "./context/AppContext.jsx";
 
 
 // Import your Publishable Key
@@ -16,9 +16,9 @@ if (!PUBLISHABLE_KEY) {
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <AppContextProvider>
+      {/* <AppContextProvider> */}
         <App />
-      </AppContextProvider>
+      {/* </AppContextProvider> */}
     </ClerkProvider>
   </BrowserRouter>
 );
