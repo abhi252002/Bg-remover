@@ -1,9 +1,5 @@
 import express from "express";
-import {
-  clerkWebhooks,
-  // paymentRazorpay,
-  // userCredits,
-} from "../controllers/userController.js";
+import { clerkWebhooks } from "../controllers/userController.js";
 // import authUser from "../middlewares/auth.js";
 
 const userRouter = express.Router();
