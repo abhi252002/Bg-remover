@@ -8,10 +8,10 @@ import axios from 'axios'
 
 function BuyCredit() {
 
-  // const {backendUrl, loadCreditsData} = useContext(AppContext);
-  // const navigate = useNavigate()
+  const {backendUrl, loadCreditsData} = useContext(AppContext);
+  const navigate = useNavigate()
 
-  // const {getToken} = useAuth();
+  const {getToken} = useAuth();
 
   // const initPay = async (order)=>{
   //      const options = {
