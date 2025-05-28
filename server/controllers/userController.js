@@ -1,7 +1,7 @@
-// import pkg from "svix";
-// const { webhook } = pkg;
+import pkg from "svix";
+const { webhook } = pkg;
 // import {webhook} from 'svix'
-// import userModel from "../models/userModel.js";
+import userModel from "../models/userModel.js";
 // import razorpay from "razorpay";
 
 
@@ -9,7 +9,7 @@
 // http://localhost:4000/api/user/webhooks
 
 const clerkWebhooks = async (req, res) => {
-  /*
+  
   try {
   //   // create a svix instance with clerk webhook secret
     const whook = new webhook(process.env.CLERK_WEBHOOK_SECRET);
@@ -57,7 +57,7 @@ const clerkWebhooks = async (req, res) => {
     console.log(err.message);
     res.json({ success: false, message: err.message });
   }
-    */
+    
 };
 
 // APi controller function to get user available credits data
@@ -156,7 +156,7 @@ const paymentRazorpay = async (req, res) => {
 //     res.json({ success: false, message: err.message });
 //   }
 // }
-export { clerkWebhooks };
+export { clerkWebhooks }
 
 //  userCredits, paymentRazorpay
 
