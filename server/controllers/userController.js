@@ -1,9 +1,7 @@
 import pkg from "svix";
 const { webhook } = pkg;
-// import {webhook} from 'svix'
 import userModel from "../models/userModel.js";
 // import razorpay from "razorpay";
-
 
 // API Controller Function to Mange Clerk User with database
 // http://localhost:4000/api/user/webhooks
@@ -20,9 +18,11 @@ const clerkWebhooks = async (req, res) => {
     });
 
     const { data, type } = req.body;
+    console.log(data,type)
 
     switch (type) {
       case "user.created": {
+        console.log("Creating user:", userData);
         const userData = {
           clerkId: data.id,
           email: data.email_addresses[0].email_address,
