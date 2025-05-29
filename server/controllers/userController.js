@@ -1,15 +1,18 @@
-import { Webhook } from 'svix';
+import { Webhook } from "svix";
 import userModel from "../models/userModel.js";
+import connectDB from "../configs/mongodb.js";
 
 // import razorpay from "razorpay";
 
 // API Controller Function to Mange Clerk User with database
 // http://localhost:4000/api/user/webhooks
 
-const clerkWebhooks = async (req,res) => {
-  
+await connectDB();
+
+
+const clerkWebhooks = async (req, res) => {
   try {
-  //   // create a svix instance with clerk webhook secret
+    //   // create a svix instance with clerk webhook secret
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
     await whook.verify(JSON.stringify(req.body), {
       "svix-id": req.headers["svix-id"],
@@ -19,10 +22,8 @@ const clerkWebhooks = async (req,res) => {
 
     const { data, type } = req.body;
 
-
     switch (type) {
       case "user.created": {
-        console.log("Creating user:", userData);
         const userData = {
           clerkId: data.id,
           email: data.email_addresses[0].email_address,
@@ -30,11 +31,12 @@ const clerkWebhooks = async (req,res) => {
           lastName: data.last_name,
           photo: data.image_url,
         };
-            console.log("creating user", userData)
-        await userModel.create(userData)
-        res.json({})
+        console.log("Creating user:", userData);
+        await userModel.create(userData);
+        res.json({});
         break;
       }
+
       case "user.updated": {
         const userData = {
           email: data.email_addresses[0].email_address,
@@ -42,14 +44,14 @@ const clerkWebhooks = async (req,res) => {
           lastName: data.last_name,
           photo: data.image_url,
         };
-        await userModel.findOneAndUpdate({ clerkId: data.id }, userData)
-        res.json({})
+        await userModel.findOneAndUpdate({ clerkId: data.id }, userData);
+        res.json({});
 
         break;
       }
       case "user.deleted": {
-        await userModel.findOneAndDelete({ clerkId: data.id })
-        res.json({})
+        await userModel.findOneAndDelete({ clerkId: data.id });
+        res.json({});
 
         break;
       }
@@ -58,7 +60,6 @@ const clerkWebhooks = async (req,res) => {
     console.log(err.message);
     res.json({ success: false, message: err.message });
   }
-    
 };
 
 // APi controller function to get user available credits data
@@ -149,15 +150,12 @@ const paymentRazorpay = async (req, res) => {
 // ApI Controller function to verify razorpay payment
 // const verify Razorpay = async(req, res)=>{
 //   try {
-    
-    
 
 //   } catch (error) {
 //      console.log(err.message);
 //     res.json({ success: false, message: err.message });
 //   }
 // }
-export { clerkWebhooks }
+export { clerkWebhooks };
 
 //  userCredits, paymentRazorpay
-
