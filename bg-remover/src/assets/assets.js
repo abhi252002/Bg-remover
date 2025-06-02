@@ -35,7 +35,7 @@ export const assets = {
 export const reviewData = [
     {
         id: 1,
-        text: "I’ve been using bg.removal for almost two years now, mostly for my Instagram content — and honestly, it’s been a lifesaver. Super easy to use, quick, and gets the job done without any hassle. Whether it's for posts or stories, it saves me so much time. Definitely one of those tools I didn’t realize I needed until I started using it regularly!.",
+        text: "I’ve been using bg.removal for almost 2 years for my Instagram content. It’s fast, easy to use, and saves me a lot of time. A super handy tool I now can’t go without!",
         author: "Dhiraj Kumar Shakya",
         image: profile_img_1,
         jobTitle:'Berojgar'
